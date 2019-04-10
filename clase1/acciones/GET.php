@@ -1,10 +1,7 @@
 <?php
-
 include '/../clases/alumno.php';
-
 $array_archivo = array();
-$archivo = fopen("alumnos.csv", "r");
-
+$archivo = fopen("data/alumnos.csv", "r");
 while(!feof($archivo)){
     $alumno_leido = trim(fgets($archivo));
     if($alumno_leido != ""){
@@ -13,7 +10,6 @@ while(!feof($archivo)){
     }
 }
 fclose($archivo);
-
 foreach ($array_archivo as $alumno_csv){
     echo $alumno_csv->toCSV()."<br>";
 }
