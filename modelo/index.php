@@ -4,6 +4,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require_once './vendor/autoload.php';
 require_once './clases/AccesoDatos.php';
 require_once './api/usuarioApi.php';
+require_once './api/compraApi.php';
 require_once './mw/MWValidaciones.php';
 
 $config['displayErrorDetails'] = true;
@@ -21,9 +22,13 @@ $app = new \Slim\App(["settings" => $config]);
 /*LLAMADA A METODOS DE INSTANCIA DE UNA CLASE*/
 $app->group('/login', function(){
   $this->post('[/]', \UsuarioApi::class . ':Login')->add(\MWValidaciones::class . ':ValidarCredenciales');
-});
+})->add(\MWValidaciones::class . ':RegistrarAccion');
 $app->group('/usuario', function () {
-  $this->get('[/]', \UsuarioApi::class . ':traerTodos');
+  $this->get('[/]', \UsuarioApi::class . ':TraerTodos')->add(\MWValidaciones::class . ':ValidarPerfil')->add(\MWValidaciones::class . ':ValidarToken');
   $this->post('[/]', \UsuarioApi::class . ':CargarUno');
-});
+})->add(\MWValidaciones::class . ':RegistrarAccion');
+$app->group('/compra', function(){
+  $this->post('[/]', \CompraApi::class . ':CargarUno')->add(\MWValidaciones::class . ':ValidarToken');
+  $this->get('[/]', \CompraApi::class . ':TraerTodos');
+})->add(\MWValidaciones::class . ':RegistrarAccion')->add(\MWValidaciones::class . ':ValidarToken');
 $app->run();

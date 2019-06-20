@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "6df960bb-f268-424e-aa98-ffd1172884e5",
+		"name": "modelo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Alta usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "usuario",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "sexo",
+							"value": "femenino",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:1234/modelo/usuario",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"modelo",
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Usuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTkzN2NlZjNkMzFmY2NjOGFiMGFlNjQxNTI5YjRjM2FiM2QyNzMyIiwibm9tYnJlIjoiYWRtaW4iLCJwZXJmaWwiOiJhZG1pbiJ9.8W-CVxgcR6WXI6R_C8hSn-xYR8zGNBWGGv2BeFpOA6w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost:1234/modelo/usuario",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"modelo",
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "sexo",
+							"value": "masculino",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:1234/modelo/login",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"modelo",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Compras",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTkzN2NlZjNkMzFmY2NjOGFiMGFlNjQxNTI5YjRjM2FiM2QyNzMyIiwibm9tYnJlIjoiYWRtaW4iLCJwZXJmaWwiOiJhZG1pbiJ9.8W-CVxgcR6WXI6R_C8hSn-xYR8zGNBWGGv2BeFpOA6w",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:1234/modelo/compra",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"modelo",
+						"compra"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alta compra",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYTkzN2NlZjNkMzFmY2NjOGFiMGFlNjQxNTI5YjRjM2FiM2QyNzMyIiwibm9tYnJlIjoidXN1YXJpbyIsInBlcmZpbCI6InVzdWFyaW8ifQ.mdqipEzddGlIGGxdkT8DMb4pzysI__XCOFl5xET8sr8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "articulo",
+							"value": "Cuchillo",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "40",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"value": null,
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:1234/modelo/compra",
+					"host": [
+						"localhost"
+					],
+					"port": "1234",
+					"path": [
+						"modelo",
+						"compra"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

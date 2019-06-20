@@ -42,7 +42,8 @@ class UsuarioApi extends Usuario{
         $usuario = Usuario::TraerUnUsuario($ArrayDeParametros['nombre']);
         if($usuario){
             if(hash('sha512', $ArrayDeParametros['clave'].$ArrayDeParametros['nombre']) == $usuario->clave && $ArrayDeParametros['sexo']==$usuario->sexo){
-                return AutentificadorJWT::CrearToken($usuario->nombre, $usuario->perfil);
+                $token = AutentificadorJWT::CrearToken($usuario->nombre, $usuario->perfil);
+                $respuesta = array("estado" => "Ok", "token" => $token);
             }else{
                 if($ArrayDeParametros['sexo']==$usuario->sexo){
                     $response->getBody()->write('Contraseña incorrecta');
@@ -53,6 +54,6 @@ class UsuarioApi extends Usuario{
         }else{
             $response->getBody()->write('Usuario incorrecto');
         }
-        return $response;
+        return $response->withJson($respuesta, 200);
     }
 }
